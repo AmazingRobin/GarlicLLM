@@ -1,0 +1,40 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B4EFF"/>
+      <stop offset="100%" style="stop-color:#00FFD1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#020712"/>
+  
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#logoGradient)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Garlic bulb shape -->
+  <g filter="url(#glow)">
+    <!-- Main bulb -->
+    <ellipse cx="100" cy="110" rx="45" ry="50" fill="url(#logoGradient)"/>
+    
+    <!-- Top stem -->
+    <path d="M90 65 Q100 45 110 65 L108 75 Q100 70 92 75 Z" fill="url(#logoGradient)"/>
+    
+    <!-- Clove lines -->
+    <path d="M70 100 Q75 130 85 150" stroke="#020712" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M100 80 Q100 120 100 155" stroke="#020712" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M130 100 Q125 130 115 150" stroke="#020712" stroke-width="2" fill="none" opacity="0.3"/>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <circle cx="65" cy="85" r="3" fill="#00FFD1" opacity="0.8"/>
+  <circle cx="140" cy="95" r="2" fill="#6B4EFF" opacity="0.8"/>
+  <circle cx="80" cy="140" r="2" fill="#00FFD1" opacity="0.6"/>
+</svg>

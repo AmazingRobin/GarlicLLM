@@ -1,0 +1,33 @@
+{
+  "name": "garlicllm",
+  "version": "1.0.0",
+  "description": "Independent AI Model Analysis & Visualization Hub",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspace=apps/web",
+    "start": "npm run start --workspace=apps/web",
+    "lint": "npm run lint --workspace=apps/web",
+    "deploy:workers": "wrangler deploy --config infra/wrangler.toml"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "visualization",
+    "benchmark",
+    "garlic",
+    "openai"
+  ],
+  "author": "GarlicLLM Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmazingRobin/GarlicLLM.git"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

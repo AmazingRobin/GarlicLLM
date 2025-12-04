@@ -1,0 +1,32 @@
+name = "garlicllm-api"
+main = "workers/api/index.js"
+compatibility_date = "2024-01-01"
+
+# Account ID - replace with your actual account ID
+# account_id = "YOUR_ACCOUNT_ID"
+
+# KV Namespaces
+# [[kv_namespaces]]
+# binding = "BENCHMARK_KV"
+# id = "YOUR_KV_NAMESPACE_ID"
+
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "YOUR_RATE_LIMIT_KV_ID"
+
+# D1 Database (optional)
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "garlicllm-db"
+# database_id = "YOUR_D1_DATABASE_ID"
+
+# Routes
+# routes = [
+#   { pattern = "api.garlicllm.com/*", zone_name = "garlicllm.com" }
+# ]
+
+[env.production]
+# Production environment settings
+
+[env.staging]
+# Staging environment settings
