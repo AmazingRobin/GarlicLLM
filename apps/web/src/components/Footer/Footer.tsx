@@ -6,47 +6,29 @@ import { Sparkles, Github, Twitter, Mail, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer style={{
-      position: 'relative',
-      backgroundColor: 'var(--bg-dark-secondary)',
-      borderTop: '1px solid var(--glass-border)'
-    }}>
+    <footer className="relative bg-[var(--bg-dark-secondary)] border-t border-[var(--glass-border)]">
       {/* Gradient overlay */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(to top, var(--bg-dark), transparent)',
-        pointerEvents: 'none'
-      }} />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-dark)] to-transparent pointer-events-none" />
 
-      <div style={{
-        position: 'relative',
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: '48px 16px'
-      }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '32px'
-        }}>
+      <div className="relative max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8">
           {/* Brand */}
           <div>
-            <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', textDecoration: 'none' }}>
-              <Sparkles style={{ width: '24px', height: '24px', color: 'var(--accent-purple)' }} />
+            <Link href="/" className="flex items-center gap-2 mb-4 no-underline">
+              <Sparkles className="w-6 h-6 text-[var(--accent-purple)]" />
               <span className="text-lg font-bold gradient-text">GarlicLLM</span>
             </Link>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: '1.6' }}>
+            <p className="text-[var(--text-secondary)] text-sm leading-[1.6]">
               Independent AI model analysis and visualization platform exploring next-generation LLM capabilities.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 style={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: '16px' }}>
+            <h3 className="text-[var(--text-primary)] font-semibold mb-4">
               Quick Links
             </h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <ul className="list-none p-0 m-0 flex flex-col gap-2">
               {[
                 { href: "/visualizer", label: "Model Visualizer" },
                 { href: "/compare", label: "Compare Models" },
@@ -55,13 +37,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    style={{
-                      color: 'var(--text-secondary)',
-                      fontSize: '14px',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s'
-                    }}
-                    className="hover:text-[var(--accent-cyan)]"
+                    className="text-[var(--text-secondary)] text-sm no-underline transition-colors duration-200 hover:text-[var(--accent-cyan)]"
                   >
                     {link.label}
                   </Link>
@@ -72,10 +48,10 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 style={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: '16px' }}>
+            <h3 className="text-[var(--text-primary)] font-semibold mb-4">
               Resources
             </h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <ul className="list-none p-0 m-0 flex flex-col gap-2">
               {[
                 { href: "#", label: "Documentation", external: true },
                 { href: "#", label: "API Reference", external: true },
@@ -84,22 +60,13 @@ export function Footer() {
                 <li key={i}>
                   <a
                     href={link.href}
-                    style={{
-                      color: 'var(--text-secondary)',
-                      fontSize: '14px',
-                      textDecoration: 'none',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      transition: 'color 0.2s'
-                    }}
-                    className="hover:text-[var(--accent-cyan)]"
+                    className="text-[var(--text-secondary)] text-sm no-underline flex items-center gap-1 transition-colors duration-200 hover:text-[var(--accent-cyan)]"
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
                   >
                     {link.label}
                     {link.external && (
-                      <ExternalLink style={{ width: '12px', height: '12px' }} />
+                      <ExternalLink className="w-3 h-3" />
                     )}
                   </a>
                 </li>
@@ -109,45 +76,42 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 style={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: '16px' }}>
+            <h3 className="text-[var(--text-primary)] font-semibold mb-4">
               Connect
             </h3>
-            <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
+            <div className="flex gap-3 mb-4">
               <a
                 href="https://github.com/AmazingRobin/GarlicLLM"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-[var(--glass-highlight)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-purple)]"
-                style={{ transition: 'all 0.2s' }}
+                className="p-2 rounded-lg bg-[var(--glass-highlight)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-purple)] transition-all duration-200"
               >
-                <Github style={{ width: '20px', height: '20px' }} />
+                <Github className="w-5 h-5" />
               </a>
               <a
-                href="#"
-                className="p-2 rounded-lg bg-[var(--glass-highlight)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-cyan)]"
-                style={{ transition: 'all 0.2s' }}
+                href="https://x.com/gigigi1966728"
+                className="p-2 rounded-lg bg-[var(--glass-highlight)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-cyan)] transition-all duration-200"
               >
-                <Twitter style={{ width: '20px', height: '20px' }} />
+                <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="mailto:support@garlicllm.com"
-                className="p-2 rounded-lg bg-[var(--glass-highlight)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-pink)]"
-                style={{ transition: 'all 0.2s' }}
+                href="mailto:robinli0302@gmail.com"
+                className="p-2 rounded-lg bg-[var(--glass-highlight)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-pink)] transition-all duration-200"
               >
-                <Mail style={{ width: '20px', height: '20px' }} />
+                <Mail className="w-5 h-5" />
               </a>
             </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '12px' }}>
+            <p className="text-[var(--text-muted)] text-xs">
               support@garlicllm.com
             </p>
           </div>
         </div>
 
         {/* Disclaimer */}
-        <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--glass-border)' }}>
-          <div style={{ backgroundColor: 'var(--bg-dark-tertiary)', borderRadius: '8px', padding: '16px', marginBottom: '24px' }}>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '12px', lineHeight: '1.6' }}>
-              <strong style={{ color: 'var(--accent-gold)' }}>⚠️ Disclaimer:</strong>{" "}
+        <div className="mt-12 pt-8 border-t border-[var(--glass-border)]">
+          {/* <div className="bg-[var(--bg-dark-tertiary)] rounded-lg p-4 mb-6">
+            <p className="text-[var(--text-secondary)] text-xs leading-[1.6]">
+              <strong className="text-[var(--accent-gold)]">⚠️ Disclaimer:</strong>{" "}
               This site is an independent, unaffiliated analysis & visualization
               hub. Any information about "Garlic" is based on public reporting,
               speculation, and third-party sources. This is NOT an OpenAI product
@@ -155,36 +119,28 @@ export function Footer() {
               levels are clearly marked. For corrections or takedown requests,
               please contact us.
             </p>
-          </div>
+          </div> */}
 
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '16px'
-          }}>
-            <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-[var(--text-muted)] text-sm">
               © 2025 GarlicLLM. All rights reserved.
             </p>
-            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div className="flex gap-6 flex-wrap justify-center">
               <Link
                 href="#"
-                style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.2s' }}
-                className="hover:text-[var(--text-secondary)]"
+                className="text-[var(--text-muted)] text-sm no-underline transition-colors duration-200 hover:text-[var(--text-secondary)]"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="#"
-                style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.2s' }}
-                className="hover:text-[var(--text-secondary)]"
+                className="text-[var(--text-muted)] text-sm no-underline transition-colors duration-200 hover:text-[var(--text-secondary)]"
               >
                 Terms of Service
               </Link>
               <Link
                 href="#"
-                style={{ color: 'var(--text-muted)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.2s' }}
-                className="hover:text-[var(--text-secondary)]"
+                className="text-[var(--text-muted)] text-sm no-underline transition-colors duration-200 hover:text-[var(--text-secondary)]"
               >
                 DMCA
               </Link>

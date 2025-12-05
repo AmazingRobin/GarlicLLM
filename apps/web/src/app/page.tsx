@@ -107,25 +107,15 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--bg-dark-secondary)', position: 'relative', overflow: 'hidden' }}>
+      <section className="py-24 bg-[var(--bg-dark-secondary)] relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-50" />
 
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px', position: 'relative' }}>
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{
-              fontSize: 'clamp(30px, 5vw, 48px)',
-              fontWeight: 'bold',
-              color: 'var(--text-primary)',
-              marginBottom: '16px'
-            }}>
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-[clamp(30px,5vw,48px)] font-bold text-[var(--text-primary)] mb-4">
               Interactive <span className="gradient-text">Exploration</span> Tools
             </h2>
-            <p style={{
-              color: 'var(--text-secondary)',
-              maxWidth: '672px',
-              margin: '0 auto',
-              lineHeight: '1.6'
-            }}>
+            <p className="text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
               Dive deep into AI model capabilities with our suite of visualization and analysis tools.
             </p>
           </div>
@@ -135,8 +125,7 @@ export default function Home() {
               <Link
                 key={i}
                 href={feature.href}
-                className="card glass-hover group relative overflow-hidden"
-                style={{ padding: '28px' }}
+                className="card glass-hover group relative overflow-hidden p-7"
               >
                 <div
                   className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-40"
@@ -144,14 +133,8 @@ export default function Home() {
                 />
 
                 <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-5"
                   style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
                     background: `${feature.color}20`,
                     color: feature.color,
                   }}
@@ -159,22 +142,11 @@ export default function Home() {
                   {feature.icon}
                 </div>
 
-                <h3 style={{
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  color: 'var(--text-primary)',
-                  marginBottom: '12px',
-                  transition: 'color 0.2s'
-                }} className="group-hover:text-[var(--accent-cyan)]">
+                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3 transition-colors group-hover:text-[var(--accent-cyan)]">
                   {feature.title}
                 </h3>
 
-                <p style={{
-                  fontSize: '14px',
-                  color: 'var(--text-secondary)',
-                  marginBottom: '20px',
-                  lineHeight: '1.6'
-                }}>
+                <p className="text-sm text-[var(--text-secondary)] mb-5 leading-relaxed">
                   {feature.description}
                 </p>
 
@@ -188,18 +160,13 @@ export default function Home() {
       </section>
 
       {/* Quick Stats Section */}
-      <section style={{ padding: '96px 0', position: 'relative' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{
-              fontSize: 'clamp(30px, 5vw, 48px)',
-              fontWeight: 'bold',
-              color: 'var(--text-primary)',
-              marginBottom: '16px'
-            }}>
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-[clamp(30px,5vw,48px)] font-bold text-[var(--text-primary)] mb-4">
               Model <span className="gradient-text">Comparison</span>
             </h2>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+            <p className="text-[var(--text-secondary)] leading-relaxed">
               See how Garlic stacks up against leading AI models
             </p>
           </div>
@@ -208,16 +175,9 @@ export default function Home() {
             {models.map((model, i) => (
               <div
                 key={model.id}
-                style={{
-                  position: 'relative',
-                  overflow: 'hidden',
-                  background: 'var(--bg-dark-secondary)',
-                  border: '1px solid var(--glass-border)',
-                  borderRadius: '16px',
-                  padding: '32px 24px',
-                }}
+                className="relative overflow-hidden bg-[var(--bg-dark-secondary)] border border-[var(--glass-border)] rounded-2xl py-8 px-6"
               >
-                <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+                <div className="absolute top-5 right-5">
                   <span className={`badge ${model.confidence === "high" ? "badge-high" :
                     model.confidence === "medium" ? "badge-medium" : "badge-low"
                     }`}>
@@ -225,40 +185,22 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h3 style={{
-                  fontSize: '20px',
-                  fontWeight: 'bold',
-                  color: 'var(--text-primary)',
-                  marginBottom: '24px',
-                  paddingRight: '80px'
-                }}>
+                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-6 pr-20">
                   {model.name}
                 </h3>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div className="flex flex-col gap-4">
                   {Object.entries(model.scores).map(([key, value]) => (
                     <div key={key}>
-                      <div style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        fontSize: '14px',
-                        marginBottom: '8px'
-                      }}>
-                        <span style={{ color: 'var(--text-secondary)', textTransform: 'capitalize' }}>{key}</span>
-                        <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{value}</span>
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="text-[var(--text-secondary)] capitalize">{key}</span>
+                        <span className="text-[var(--text-primary)] font-semibold">{value}</span>
                       </div>
-                      <div style={{
-                        height: '8px',
-                        backgroundColor: 'var(--bg-dark-tertiary)',
-                        borderRadius: '999px',
-                        overflow: 'hidden'
-                      }}>
+                      <div className="h-2 bg-[var(--bg-dark-tertiary)] rounded-full overflow-hidden">
                         <div
+                          className="h-full rounded-full transition-all duration-1000"
                           style={{
-                            height: '100%',
                             width: `${value}%`,
-                            borderRadius: '999px',
-                            transition: 'all 1s',
                             background: i === 0
                               ? 'var(--gradient-primary)'
                               : 'var(--accent-cyan)',
@@ -269,12 +211,8 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div style={{
-                  marginTop: '24px',
-                  paddingTop: '20px',
-                  borderTop: '1px solid var(--glass-border)'
-                }}>
-                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+                <div className="mt-6 pt-5 border-t border-[var(--glass-border)]">
+                  <p className="text-xs text-[var(--text-muted)] leading-normal">
                     Source: {model.source}
                   </p>
                 </div>
@@ -291,26 +229,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ padding: '96px 0', backgroundColor: 'var(--bg-dark-secondary)', position: 'relative', overflow: 'hidden' }}>
+      <section className="py-24 bg-[var(--bg-dark-secondary)] relative overflow-hidden">
         <div className="absolute inset-0 radial-glow opacity-50" />
 
-        <div style={{ maxWidth: '896px', margin: '0 auto', padding: '0 16px', textAlign: 'center', position: 'relative' }}>
-          <h2 style={{
-            fontSize: 'clamp(30px, 5vw, 60px)',
-            fontWeight: 'bold',
-            color: 'var(--text-primary)',
-            marginBottom: '24px'
-          }}>
+        <div className="max-w-4xl mx-auto px-4 text-center relative">
+          <h2 className="text-[clamp(30px,5vw,60px)] font-bold text-[var(--text-primary)] mb-6">
             Ready to <span className="gradient-text">Explore?</span>
           </h2>
-          <p style={{
-            fontSize: '18px',
-            color: 'var(--text-secondary)',
-            marginBottom: '32px',
-            maxWidth: '672px',
-            margin: '0 auto 32px',
-            lineHeight: '1.6'
-          }}>
+          <p className="text-lg text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto leading-relaxed">
             Dive into our interactive demos and discover what the next generation
             of AI models might be capable of.
           </p>

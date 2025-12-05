@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar/NavBar";
 import { Footer } from "@/components/Footer/Footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "GarlicLLM - AI Model Analysis & Visualization Hub",
@@ -35,6 +38,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -44,23 +50,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-      </head>
-      <body style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        width: '100%',
-        margin: 0,
-        padding: 0
-      }}>
+      <body className={`${inter.className} flex flex-col min-h-screen w-full m-0 p-0`}>
         <TooltipProvider>
           <NavBar />
-          <main style={{ flex: 1, width: '100%' }}>{children}</main>
+          <main className="flex-1 w-full">{children}</main>
           <Footer />
         </TooltipProvider>
       </body>

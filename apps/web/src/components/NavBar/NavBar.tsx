@@ -46,46 +46,34 @@ export function NavBar() {
 
   return (
     <nav
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        transition: 'all 0.3s',
-        backgroundColor: scrolled ? 'rgba(2, 7, 18, 0.9)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
-      }}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled ? "bg-[rgba(2,7,18,0.9)] backdrop-blur-md border-b border-white/10" : "bg-transparent border-b border-transparent"
+      )}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-            <div style={{ position: 'relative' }}>
-              <Sparkles style={{ width: '32px', height: '32px', color: 'var(--accent-purple)' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'var(--accent-purple)', filter: 'blur(8px)', opacity: 0.5, pointerEvents: 'none' }} />
+          <Link href="/" className="flex items-center gap-2 no-underline">
+            <div className="relative">
+              <Sparkles className="w-8 h-8 text-[var(--accent-purple)]" />
+              <div className="absolute inset-0 bg-[var(--accent-purple)] blur-lg opacity-50 pointer-events-none" />
             </div>
             <span className="text-xl font-bold gradient-text">GarlicLLM</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }} className="hidden md:flex">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                style={{
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  transition: 'all 0.2s',
-                  textDecoration: 'none',
-                  backgroundColor: pathname === link.href ? 'rgba(107, 78, 255, 0.2)' : 'transparent',
-                  color: pathname === link.href ? 'var(--accent-purple)' : 'var(--text-secondary)',
-                }}
-                className={pathname !== link.href ? 'hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]' : ''}
+                className={cn(
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 no-underline",
+                  pathname === link.href
+                    ? "bg-[rgba(107,78,255,0.2)] text-[var(--accent-purple)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]"
+                )}
               >
                 {link.label}
               </Link>
@@ -93,38 +81,24 @@ export function NavBar() {
           </div>
 
           {/* Right side actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div className="flex items-center gap-4">
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              style={{
-                padding: '8px',
-                borderRadius: '8px',
-                border: 'none',
-                background: 'transparent',
-                cursor: 'pointer',
-                color: 'var(--text-secondary)',
-                transition: 'all 0.2s',
-              }}
-              className="hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]"
+              className="p-2 rounded-lg border-none bg-transparent cursor-pointer text-[var(--text-secondary)] transition-all duration-200 hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
-                <Sun style={{ width: '20px', height: '20px' }} />
+                <Sun className="w-5 h-5" />
               ) : (
-                <Moon style={{ width: '20px', height: '20px' }} />
+                <Moon className="w-5 h-5" />
               )}
             </button>
 
             {/* CTA Button */}
             <Link
               href="/demo"
-              className="hidden sm:flex btn-primary"
-              style={{
-                fontSize: '14px',
-                padding: '8px 16px',
-                textDecoration: 'none',
-              }}
+              className="hidden sm:flex btn-primary text-sm px-4 py-2 no-underline"
             >
               Try Demo
             </Link>
@@ -132,22 +106,13 @@ export function NavBar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              style={{
-                padding: '8px',
-                borderRadius: '8px',
-                border: 'none',
-                background: 'transparent',
-                cursor: 'pointer',
-                color: 'var(--text-secondary)',
-                display: 'flex',
-              }}
-              className="md:hidden hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]"
+              className="md:hidden p-2 rounded-lg border-none bg-transparent cursor-pointer text-[var(--text-secondary)] flex hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]"
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <X style={{ width: '24px', height: '24px' }} />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu style={{ width: '24px', height: '24px' }} />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -156,39 +121,23 @@ export function NavBar() {
 
       {/* Mobile Navigation */}
       <div
-        style={{
-          position: 'absolute',
-          top: '64px',
-          left: 0,
-          right: 0,
-          backgroundColor: 'rgba(2, 7, 18, 0.95)',
-          backdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          maxHeight: isOpen ? '256px' : '0',
-          opacity: isOpen ? 1 : 0,
-          overflow: 'hidden',
-          transition: 'all 0.3s',
-        }}
-        className="md:hidden"
+        className={cn(
+          "md:hidden absolute top-16 left-0 right-0 bg-[rgba(2,7,18,0.95)] backdrop-blur-md border-b border-white/10 overflow-hidden transition-all duration-300",
+          isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        )}
       >
-        <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div className="p-4 flex flex-col gap-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              style={{
-                padding: '12px 16px',
-                borderRadius: '8px',
-                fontSize: '14px',
-                fontWeight: 500,
-                textDecoration: 'none',
-                transition: 'all 0.2s',
-                backgroundColor: pathname === link.href ? 'rgba(107, 78, 255, 0.2)' : 'var(--bg-dark)',
-                color: pathname === link.href ? 'var(--accent-purple)' : 'var(--text-secondary)',
-                border: pathname === link.href ? '1px solid var(--accent-purple)' : '1px solid var(--glass-border)',
-              }}
-              className={pathname !== link.href ? 'hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]' : ''}
+              className={cn(
+                "px-4 py-3 rounded-lg text-sm font-medium no-underline transition-all duration-200 border",
+                pathname === link.href
+                  ? "bg-[rgba(107,78,255,0.2)] text-[var(--accent-purple)] border-[var(--accent-purple)]"
+                  : "bg-[var(--bg-dark)] text-[var(--text-secondary)] border-[var(--glass-border)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-highlight)]"
+              )}
             >
               {link.label}
             </Link>

@@ -36,8 +36,8 @@ export default function ComparePage() {
   });
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-dark)', paddingTop: '120px', paddingBottom: '48px' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
+    <div className="min-h-screen bg-[var(--bg-dark)] pt-[120px] pb-12">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent-cyan)]/10 border border-[var(--accent-cyan)]/30 mb-4">
