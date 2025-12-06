@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar/NavBar";
 import { Footer } from "@/components/Footer/Footer";
@@ -51,6 +52,20 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body className={`${inter.className} flex flex-col min-h-screen w-full m-0 p-0`}>
+        {/* OpenPanel Analytics */}
+        <Script id="openpanel-init" strategy="beforeInteractive">
+          {`
+            window.op = window.op||function(...args){(window.op.q=window.op.q||[]).push(args);};
+            window.op('init', {
+              clientId: '5d9fc306-1309-47cc-b443-94bae808db58',
+              trackScreenViews: true,
+              trackOutgoingLinks: true,
+              trackAttributes: true,
+            });
+          `}
+        </Script>
+        <Script src="https://openpanel.dev/op1.js" strategy="afterInteractive" />
+
         <TooltipProvider>
           <NavBar />
           <main className="flex-1 w-full">{children}</main>
