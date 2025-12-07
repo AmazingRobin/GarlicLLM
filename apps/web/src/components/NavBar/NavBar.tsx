@@ -55,9 +55,8 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 no-underline">
-            <div className="relative">
-              <Sparkles className="w-8 h-8 text-[var(--accent-purple)]" />
-              <div className="absolute inset-0 bg-[var(--accent-purple)] blur-lg opacity-50 pointer-events-none" />
+            <div className="relative w-8 h-8">
+              <img src="/logo.png" alt="GarlicLLM Logo" className="w-full h-full object-contain" />
             </div>
             <span className="text-xl font-bold gradient-text">GarlicLLM</span>
           </Link>

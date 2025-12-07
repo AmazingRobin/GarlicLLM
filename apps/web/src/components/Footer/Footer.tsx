@@ -15,7 +15,9 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4 no-underline">
-              <Sparkles className="w-6 h-6 text-[var(--accent-purple)]" />
+              <div className="relative w-6 h-6">
+                <img src="/logo.png" alt="GarlicLLM Logo" className="w-full h-full object-contain" />
+              </div>
               <span className="text-lg font-bold gradient-text">GarlicLLM</span>
             </Link>
             <p className="text-[var(--text-secondary)] text-sm leading-[1.6]">

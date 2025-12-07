@@ -29,8 +29,8 @@ const demos = [
     description: "Upload images and see how multimodal models might analyze and describe visual content.",
     icon: <Eye className="w-8 h-8" />,
     color: "#FF4ECD",
-    href: "#",
-    status: "coming-soon",
+    href: "/demo/vision",
+    status: "available",
   },
   {
     id: "prompt",
@@ -38,8 +38,8 @@ const demos = [
     description: "Experiment with different prompting techniques and see how they affect model outputs.",
     icon: <MessageSquare className="w-8 h-8" />,
     color: "#FFD700",
-    href: "#",
-    status: "coming-soon",
+    href: "/demo/prompt",
+    status: "available",
   },
 ];
 
