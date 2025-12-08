@@ -297,7 +297,6 @@ This site is an independent, unaffiliated analysis & visualization hub. Any info
 
 For every benchmark/data cell, show source + link + confidence.
 
-Add DMCA / contact email support@garlicllm.com (or placeholder) and a simple form to request corrections.
 
 十一、交付物（完成后必须包含）
 

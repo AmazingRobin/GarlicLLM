@@ -173,15 +173,15 @@ function GlowingRings() {
     <group>
       <mesh ref={ring1}>
         <torusGeometry args={[3, 0.02, 16, 100]} />
-        <meshBasicMaterial color="#6B4EFF" transparent opacity={0.5} />
+        <meshBasicMaterial color="#6B4EFF" transparent opacity={0.8} />
       </mesh>
       <mesh ref={ring2}>
         <torusGeometry args={[3.5, 0.015, 16, 100]} />
-        <meshBasicMaterial color="#00FFD1" transparent opacity={0.4} />
+        <meshBasicMaterial color="#00FFD1" transparent opacity={0.6} />
       </mesh>
       <mesh ref={ring3}>
         <torusGeometry args={[4, 0.01, 16, 100]} />
-        <meshBasicMaterial color="#FF4ECD" transparent opacity={0.3} />
+        <meshBasicMaterial color="#FF4ECD" transparent opacity={0.5} />
       </mesh>
     </group>
   );
@@ -287,7 +287,7 @@ export function Hero3D({ performanceLevel = "high" }: Hero3DProps) {
     ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
     : false;
 
-  if (!webGLSupported || prefersReducedMotion || performanceLevel === "low") {
+  if (!webGLSupported || prefersReducedMotion) {
     return (
       <div ref={containerRef} className="relative w-full h-screen bg-[var(--bg-dark)]">
         <StaticFallback />

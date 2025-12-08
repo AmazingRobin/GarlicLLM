@@ -103,9 +103,6 @@ export function Footer() {
                 <Mail className="w-5 h-5" />
               </a>
             </div>
-            <p className="text-[var(--text-muted)] text-xs">
-              support@garlicllm.com
-            </p>
           </div>
         </div>
 

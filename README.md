@@ -174,6 +174,5 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ## 📧 Contact
 
-- Email: support@garlicllm.com
 - GitHub: [@AmazingRobin](https://github.com/AmazingRobin)
 - Site: [garlicllm.com](https://garlicllm.com)
